@@ -38,7 +38,7 @@ var module = function () {
     }
 
     function generateHashTable(table,key){
-        var hashTable=new Object();
+        var hashTable=new Array();
         table.forEach(function (record) {
             var temp = record.get(key).toString();
             var hashCode = temp.hashCode();
