@@ -1,1 +1,1 @@
-# hash-join
+# hash-join implementation in Javascript.
