@@ -28,11 +28,13 @@ var module = function () {
         table.forEach((record)=>{
             let hashCode = record.get(key).toString().hashCode();
             let nameTableRecord = hashTable[hashCode];
-            let temp =  new Object();
-            temp[key] = record.get(key);
-            temp['name'] = nameTableRecord.get('name');
-            temp['marks'] = record.get('marks');
-            result.push(temp);
+            if(nameTableRecord){
+                let temp =  new Object();
+                temp[key] = record.get(key);
+                temp['name'] = nameTableRecord.get('name');
+                temp['marks'] = record.get('marks');
+                result.push(temp);
+            }
         })
         return result;
     }
@@ -49,7 +51,7 @@ var module = function () {
 
     function h() {
         var temp=[];
-        for(var i=0;i<1000000;i++){
+        for(var i=0;i<1000;i++){
             var m=new Map();
             m.set('id',i); m.set('name','a'+ i);
             temp.push(m)
@@ -57,8 +59,8 @@ var module = function () {
         return temp;
     }
     function e() {
-        var temp=[];
-        for(var i=0;i<100000;i++){
+        var temp=[]
+        for(var i=0;i<1000000;i++){
             var m=new Map();
             m.set('id',i); m.set('marks',i*50);
             temp.push(m)
